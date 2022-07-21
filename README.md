@@ -1,2 +1,2 @@
-# repo-template
-Repositorio correspondiente al Grepo-template
+# serverless-cv-builder
+Cloud-based CV Builder. Serverless web application.

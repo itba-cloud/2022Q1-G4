@@ -13,13 +13,12 @@ locals {
   }
 }
 
-
 module "dynamo" {
-  source = "./dynamo_table"
+  source = "./modules/dynamo_table"
 
   for_each   = local.tables
-  table_name = try(each.value.name, "")
-  attributes = try(each.value.attributes, {})
-  hash_key   = try(each.value.hash_key, "")
+  table_name = each.value.name
+  attributes = each.value.attributes
+  hash_key   = each.value.hash_key
 
 }

@@ -5,12 +5,13 @@ locals {
       description = "Open all for lambda"
       vpc_id      = module.vpc["vpc"].vpc_id
       ingress_rules = {
-        ingress = {
-          from_port   = 0
-          to_port     = 0
-          protocol    = "-1"
-          cidr_blocks = ["0.0.0.0/0"]
-        }
+        # none = {}
+        # ingress = {
+        #   from_port   = 0
+        #   to_port     = 0
+        #   protocol    = "-1"
+        #   cidr_blocks = ["0.0.0.0/0"]
+        # }
       }
       egress_rules = {
         egress = {
@@ -25,7 +26,7 @@ locals {
 }
 
 module "security_group" {
-  source   = "./security_group"
+  source   = "./modules/security_group"
   for_each = local.security_groups
 
   name          = each.value.name
